@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form name="contact-form">
+      <input name="name" type="text" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="message" type="text" placeholder="Message" required>
+      <button type="submit">Send</button>
+    </form>
+
+    <script>
+      let form = document.forms["contact-form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch("<SCRIPT_URL>", {method: "POST", body: new FormData(form)})
+          .then(res => console.log(res))
+          .catch(err => console.error(err))
+      });
+    </script>
+  </body>
+</html>
